@@ -38,7 +38,7 @@ export default function CreatePost() {
 
             <div className="grid w-full max-w-sm items-center gap-1.5 placeholder:text-[#144949]/50">
               <Label htmlFor="picture">Picture</Label>
-              <Input id="picture" type="file" />
+              <Input id="picture" type="file" accept="image/*" />
             </div>
 
             <Button
