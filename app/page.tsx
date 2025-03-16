@@ -32,11 +32,14 @@ export default function Home() {
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={i}
-            className="h-40 bg-card text-card-foreground border border-border rounded-md flex items-center justify-center text-lg font-semibold shadow transition-all duration-500">
+            className="h-40 bg-card text-card-foreground border border-border rounded-md flex text-lg font-semibold shadow transition-all duration-500">
             {fetchThread ? (
               <PostsSkeleton /> // Single rectangle skeleton
             ) : (
-              <p>Post {i + 1}</p> // Final content
+              <p>
+                Post {i + 1} <br />
+                <span className="text-sm text-muted-foreground">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Konoha sukiyo ohayo makan laper aku lagi puasa hmmm.</span>
+              </p> // Final content
             )}
           </div>
         ))}
