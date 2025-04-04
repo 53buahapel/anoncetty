@@ -1,0 +1,21 @@
+services:
+  anoncetty:
+    build: .
+    container_name: anoncetty
+    ports:
+      - "3000:3000"
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: anoncetty
+      POSTGRES_PASSWORD: anoncetty
+      POSTGRES_DB: anoncetty
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
