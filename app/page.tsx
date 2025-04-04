@@ -5,6 +5,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import PostsSkeleton from "@/components/PostsSkeleton";
+import Image from "next/image";
 
 export default function Home() {
   const [fetchThread, setLoading] = useState(true);
@@ -32,14 +33,21 @@ export default function Home() {
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={i}
-            className="h-40 bg-card text-card-foreground border border-border rounded-md flex text-lg font-semibold shadow transition-all duration-500">
+            className="h-40 bg-card text-card-foreground p-2 border border-border rounded-md flex text-lg font-semibold shadow transition-all duration-500">
             {fetchThread ? (
               <PostsSkeleton /> // Single rectangle skeleton
             ) : (
-              <p>
-                Post {i + 1} <br />
-                <span className="text-sm text-muted-foreground">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Konoha sukiyo ohayo makan laper aku lagi puasa hmmm.</span>
-              </p> // Final content
+              <div className="flex space-x-2">
+                <div className="">
+                  <Image src="/Indomie_Logo.png" alt="placeholder" width={100} height={100} /> 
+                </div>
+                <div className="">
+                  <p>
+                    Post {i + 1}
+                  </p>
+                  <span className="text-sm text-muted-foreground">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Konoha sukiyo ohayo makan laper aku lagi puasa hmmm.</span>
+                </div>
+              </div>
             )}
           </div>
         ))}

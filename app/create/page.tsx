@@ -20,8 +20,8 @@ export default function CreatePost() {
           <form className="space-y-4">
             <Input
               type="text"
-              placeholder="Tulis Nama Kamu Disini..."
-              className="w-ful placeholder:text-[#144949]/50l"
+              placeholder="Judulnya disini..."
+              className="w-full placeholder:text-[#144949]/50l"
             />
 
             <Textarea
