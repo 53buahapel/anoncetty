@@ -7,7 +7,7 @@ export async function GET(params : NextRequest) {
   const page = searchParams.get("page") || "1";
   const pageSize = 6;
 
-  const posts = await prisma.posts.findMany({
+  const posts = await prisma.threads.findMany({
     skip: (parseInt(page) - 1) * pageSize,
     take: pageSize,
     where: {
@@ -19,7 +19,7 @@ export async function GET(params : NextRequest) {
       createdAt: "desc",
     },
   });
-  const totalPosts = await prisma.posts.count();
+  const totalPosts = await prisma.threads.count();
 
   return NextResponse.json({
     posts,

@@ -24,7 +24,7 @@ export default function Home() {
     const fetchThreads = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/posts?page=${page}`, {
+        const response = await fetch(`/api/threads?page=${page}`, {
           method: "GET",
           cache: "no-store",
         });
@@ -49,7 +49,7 @@ export default function Home() {
       <div className="flex justify-center mt-6">
         <Link href="/create">
           <Button className="bg-primary text-primary-foreground px-6 py-2 hover:bg-primary/90">
-            Create Post
+            Buat Thread
           </Button>
         </Link>
       </div>
@@ -87,13 +87,13 @@ export default function Home() {
       {/* Pagination Controls */}
       <div className="flex justify-center my-4 space-x-4">
         <Button disabled={page === 1} onClick={() => setPage(page - 1)}>
-          Previous
+          Sebelumnya
         </Button>
         <span className="text-lg">
           Page {page} of {totalPages}
         </span>
-        <Button disabled={page === totalPages} onClick={() => setPage(page + 1)}>
-          Next
+        <Button disabled={page >= totalPages} onClick={() => setPage(page + 1)}>
+          Selanjutnya
         </Button>
       </div>
     </div>

@@ -32,7 +32,7 @@ export default function CreatePost() {
       }
       setError("");
 
-      const response = await fetch("/api/post", {
+      const response = await fetch("/api/thread", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
