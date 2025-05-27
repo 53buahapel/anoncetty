@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   images: {
     remotePatterns: [
       {
@@ -13,7 +12,6 @@ const nextConfig = {
         hostname: "**",
       },
     ],
-    // Ensure domains array is empty to avoid conflicts
     domains: [],
   },
 };
