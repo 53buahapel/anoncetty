@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
 
-export default function ThreadPage() {
+function ThreadContent() {
   const searchParams = useSearchParams();
   const postId = searchParams.get("id");
 
@@ -145,5 +145,13 @@ export default function ThreadPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function ThreadPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <ThreadContent />
+    </Suspense>
   );
 }

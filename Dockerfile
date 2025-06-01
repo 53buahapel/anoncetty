@@ -1,15 +1,16 @@
-FROM oven/bun:latest AS builder
+FROM node:bullseye AS builder
 
 WORKDIR /app
 COPY package.json bun.lock ./
 
-RUN bun install --frozen-lockfile
+RUN npm install --frozen-lockfile
 
 COPY . .
 
-RUN bun run build
+RUN npx prisma generate
+RUN npm run build
 
-FROM oven/bun:latest AS runner
+FROM node:bullseye AS runner
 
 WORKDIR /app
 
@@ -20,9 +21,7 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/prisma ./prisma
 
-RUN bunx prisma generate
-
 EXPOSE 3000
 
 # Start the application
-CMD ["bun", "run", "start"]
+CMD ["npm", "run", "start"]

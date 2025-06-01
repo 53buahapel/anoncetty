@@ -8,7 +8,7 @@ export default function Header() {
       </a>
       <a href="/">
         <img
-          src="/Indomie_logo.png"
+          src="/logo.jpg"
           alt="AnonCetty"
           className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10"
         />
